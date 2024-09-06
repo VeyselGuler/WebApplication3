@@ -1,0 +1,57 @@
+﻿@model Product
+
+@Html.ValidationSummary()
+
+@if (ViewBag.CaptchaError != null)
+{
+<div class="alert alert-danger" role="alert">
+    Amanın reCAPTCHA doğrulanamadı 😰
+</div>
+}
+
+<form method="post" id="productForm" action="/UpdateProduct/@Model.Id">
+    <p>
+        <label asp-for="Title"></label>
+        <input required asp-for="Title" />
+        <span asp-validation-for="Title"></span>
+    </p>
+    <p>
+        <label asp-for="Description"></label>
+        <textarea required asp-for="Description"></textarea>
+        <span asp-validation-for="Description"></span>
+    </p>
+    <p>
+        <label asp-for="Price"></label>
+        <input type="number" step="0.01" required asp-for="Price" />
+        <span asp-validation-for="Price"></span>
+    </p>
+    <p>
+        <label asp-for="Stock"></label>
+        <input type="number" required asp-for="Stock" />
+        <span asp-validation-for="Stock"></span>
+    </p>
+    <p>
+        <button class="g-recaptcha"
+                data-sitekey=""
+                data-callback='onSubmit'
+                data-action='submit'>
+            Güncelle
+        </button>
+    </p>
+    <input type="hidden" id="captchaToken" name="captchaToken" />
+</form>
+
+@section Scripts {
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        function onSubmit(token) {
+            document.getElementById('captchaToken').value = token;
+            document.getElementById('productForm').submit();
+        }
+    </script>
+}
+@section Styles {
+<style>
+    .grecaptcha-badge { z-index: 1; }
+</style>
+}
