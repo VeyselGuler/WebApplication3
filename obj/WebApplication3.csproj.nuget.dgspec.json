@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/veyselmor/Documents/GitHub/WebApplication3/WebApplication3.csproj": {}
+    "/Users/veyselmor/Downloads/WebApplication3/WebApplication3.csproj": {}
   },
   "projects": {
-    "/Users/veyselmor/Documents/GitHub/WebApplication3/WebApplication3.csproj": {
+    "/Users/veyselmor/Downloads/WebApplication3/WebApplication3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/veyselmor/Documents/GitHub/WebApplication3/WebApplication3.csproj",
+        "projectUniqueName": "/Users/veyselmor/Downloads/WebApplication3/WebApplication3.csproj",
         "projectName": "WebApplication3",
-        "projectPath": "/Users/veyselmor/Documents/GitHub/WebApplication3/WebApplication3.csproj",
+        "projectPath": "/Users/veyselmor/Downloads/WebApplication3/WebApplication3.csproj",
         "packagesPath": "/Users/veyselmor/.nuget/packages/",
-        "outputPath": "/Users/veyselmor/Documents/GitHub/WebApplication3/obj/",
+        "outputPath": "/Users/veyselmor/Downloads/WebApplication3/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/veyselmor/.nuget/NuGet/NuGet.Config"
