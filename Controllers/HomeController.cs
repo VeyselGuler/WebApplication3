@@ -46,7 +46,6 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    [Route("/UpdateProduct/{id}")]
     public IActionResult UpdateProduct(int id, Product model, string captchaToken)
     {
         if (!ModelState.IsValid)
@@ -60,17 +59,23 @@ public class HomeController : Controller
             return View(model);
         }
 
-        var client = new RestClient("https://dummyjson.com");
+        var options = new RestClientOptions("https://dummyjson.com")
+        {
+            MaxTimeout = -1,
+        };
+        
+        var client = new RestClient(options);
         var request = new RestRequest($"products/{id}", Method.Put);
         request.AddJsonBody(model);
-        var response = client.Execute<Product>(request);
+        RestResponse response = client.Execute(request);
 
         if (response.IsSuccessful)
         {
             return RedirectToAction("Index");
         }
+        
 
-        return View(model);
+        return Content("güncellendi");
     }
 
     [HttpGet]
@@ -110,7 +115,7 @@ public class HomeController : Controller
     {
         var client = new RestClient("https://www.google.com/recaptcha");
         var request = new RestRequest("api/siteverify", Method.Post);
-        request.AddParameter("secret", "");
+        request.AddParameter("secret", "6LfTHjQqAAAAAAZlwWhUGrdYDsdBGGuzymVdsgpq");
         request.AddParameter("response", captchaToken);
 
         var response = client.Execute<CaptchaResponse>(request);

@@ -9,36 +9,36 @@
 </div>
 }
 
-<form method="post" id="productForm" action="/UpdateProduct/@Model.Id">
+<form method="post" id="productForm" action="/Home/UpdateProduct/@Model.Id">
     <p>
         <label asp-for="Title"></label>
-        <input required asp-for="Title" />
+        <input required asp-for="Title" name="title"/>
         <span asp-validation-for="Title"></span>
     </p>
     <p>
         <label asp-for="Description"></label>
-        <textarea required asp-for="Description"></textarea>
+        <textarea required asp-for="Description" name="description"></textarea>
         <span asp-validation-for="Description"></span>
     </p>
     <p>
         <label asp-for="Price"></label>
-        <input type="number" step="0.01" required asp-for="Price" />
+        <input type="number" step="0.01" required asp-for="Price" name="price"/>
         <span asp-validation-for="Price"></span>
     </p>
     <p>
         <label asp-for="Stock"></label>
-        <input type="number" required asp-for="Stock" />
+        <input type="number" required asp-for="Stock" name="stock"/>
         <span asp-validation-for="Stock"></span>
     </p>
     <p>
         <button class="g-recaptcha"
-                data-sitekey=""
+                data-sitekey="6LfTHjQqAAAAAItUc-yBBqF-LapOEsDdwDQvMcu6"
                 data-callback='onSubmit'
                 data-action='submit'>
             Güncelle
         </button>
     </p>
-    <input type="hidden" id="captchaToken" name="captchaToken" />
+    <input type="hidden" id="captchaToken" name="captchaToken"/>
 </form>
 
 @section Scripts {
